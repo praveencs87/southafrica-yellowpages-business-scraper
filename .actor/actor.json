@@ -1,8 +1,8 @@
 {
     "actorSpecification": 1,
     "name": "southafrica-yellowpages-business-scraper",
-    "title": "South Africa Yellow Pages Scraper | B2B Leads",
-    "description": "Extract verified South African businesses, manufacturers, and local services from YellowPages.co.za. Premium African B2B leads.",
+    "title": "South Africa Brabys Business Scraper | B2B Leads",
+    "description": "Extract verified South African businesses, tradesmen, and industrial services from Brabys.com. Premium B2B leads.",
     "version": "1.0",
     "input": "./input_schema.json",
     "dockerfile": "./Dockerfile",
@@ -22,8 +22,8 @@
         }
     ],
     "isPublic": true,
-    "seoTitle": "YellowPages.co.za Scraper | South Africa Business Directory Extractor",
-    "seoDescription": "Scrape verified South African businesses, mining suppliers, real estate agencies, and B2B leads from YellowPages.co.za.",
+    "seoTitle": "Brabys Scraper | South Africa Business Directory Extractor",
+    "seoDescription": "Scrape verified South African businesses, tradesmen, industrial services, and B2B leads from Brabys.com.",
     "categories": [
         "LEAD_GENERATION",
         "BUSINESS",

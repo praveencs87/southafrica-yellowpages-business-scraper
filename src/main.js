@@ -7,7 +7,7 @@ try {
     const input = await Actor.getInput();
     const { 
         keyword = 'plumber', 
-        location = 'Johannesburg', 
+        location = 'Cape Town', 
         maxLeads = 100,
         proxyConfiguration 
     } = input || {};
@@ -18,11 +18,12 @@ try {
         apifyProxyCountry: 'ZA'
     });
 
-    log.info(`Searching YellowPages.co.za for "${keyword}" in "${location}"`);
+    log.info(`Searching Brabys.com (South Africa) for "${keyword}" in "${location}"`);
     
     await Actor.charge({ eventName: 'apify-actor-start', count: 1 });
 
     let extractedCount = 0;
+    let isSearchSubmitted = false;
 
     const crawler = new PlaywrightCrawler({
         proxyConfiguration: proxyConfig,
@@ -32,28 +33,42 @@ try {
             useFingerprints: true,
         },
         async requestHandler({ page, request, log, enqueueLinks }) {
-            log.info(`Parsing directory page: ${request.url}`);
+            log.info(`Parsing page: ${request.url}`);
             
-            // Accept cookies if presented
-            await page.locator('#accept-cookies, .cookie-accept, button:has-text("Accept")').click({ timeout: 5000 }).catch(() => {});
-            
-            await page.waitForSelector('.search-result-item, .listing, .result, .business-card, [data-testid="listing"]', { timeout: 30000 }).catch(() => log.warning('Timeout waiting for DOM.'));
-
             const title = await page.title();
-            if (title.includes('Just a moment') || title.includes('Access Denied') || title.includes('Attention Required')) {
+            if (title.includes('Just a moment') || title.includes('Access Denied') || title.includes('Attention Required') || title.includes('Oh noes!')) {
                 throw new Error('Blocked by WAF. Retrying with residential proxy...');
             }
+
+            // Check if we are on the homepage to submit the search form
+            if (request.url === 'https://www.brabys.com/' && !isSearchSubmitted) {
+                log.info('Filling out the search form on Brabys homepage...');
+                await page.waitForSelector('input[name="term"]');
+                await page.fill('input[name="term"]', keyword);
+                await page.fill('input[name="town"]', location);
+                
+                await Promise.all([
+                    page.waitForNavigation({ waitUntil: 'domcontentloaded' }),
+                    page.click('button[type="submit"]')
+                ]);
+                
+                log.info(`Redirected to search results: ${page.url()}`);
+                isSearchSubmitted = true;
+            }
+
+            // Now we are on the results page
+            await page.waitForSelector('.business-listing, .listing, .result, .card, [itemprop="itemListElement"], .search-result', { timeout: 30000 }).catch(() => log.warning('Timeout waiting for DOM.'));
 
             // Scroll down to trigger lazy loading
             await page.evaluate(() => window.scrollBy(0, window.innerHeight * 2));
             await page.waitForTimeout(2000);
 
-            const items = await page.$$('.search-result-item, .listing, .result, .business-card, [data-testid="listing"]');
+            const items = await page.$$('.business-listing, .listing, .result, .card, [itemprop="itemListElement"], .search-result');
             
             for (const item of items) {
                 if (extractedCount >= maxLeads) break;
 
-                const nameElement = await item.$('h2, .title, .business-name, h3');
+                const nameElement = await item.$('h2, .title, .business-name, [itemprop="name"]');
                 if (!nameElement) continue;
                 const businessName = (await nameElement.innerText()).trim();
 
@@ -61,7 +76,7 @@ try {
                 const address = addressElement ? (await addressElement.innerText()).trim().replace(/\s+/g, ' ') : '';
 
                 // Category
-                const catElement = await item.$('.category, .industry, .sub-title');
+                const catElement = await item.$('.category, .industry, [itemprop="applicationCategory"]');
                 const industry = catElement ? (await catElement.innerText()).trim() : keyword;
 
                 // Phones
@@ -83,7 +98,7 @@ try {
                 // URL
                 const urlElement = await item.$('h2 a, .business-name a, a.title');
                 const listingUrl = urlElement ? await urlElement.getAttribute('href') : '';
-                const fullListingUrl = listingUrl && !listingUrl.startsWith('http') ? new URL(listingUrl, 'https://www.yellowpages.co.za').toString() : listingUrl;
+                const fullListingUrl = listingUrl && !listingUrl.startsWith('http') ? new URL(listingUrl, 'https://www.brabys.com').toString() : listingUrl;
 
                 if (businessName && businessName.length > 1) {
                     const record = {
@@ -92,7 +107,7 @@ try {
                         address,
                         phone,
                         website,
-                        listingUrl: fullListingUrl || request.url,
+                        listingUrl: fullListingUrl || page.url(),
                         scrapedAt: new Date().toISOString()
                     };
 
@@ -105,34 +120,14 @@ try {
 
             // Pagination
             if (extractedCount < maxLeads) {
-                const hasNextPage = await page.$('.pagination a.next, a.next-page, a:has-text("Next"), a[rel="next"]');
+                const hasNextPage = await page.$('.pagination a.next, a[rel="next"]');
                 if (hasNextPage) {
                     const nextUrl = await hasNextPage.getAttribute('href');
                     if (nextUrl) {
-                        const absoluteUrl = new URL(nextUrl, 'https://www.yellowpages.co.za').toString();
+                        const absoluteUrl = new URL(nextUrl, 'https://www.brabys.com').toString();
                         log.info(`Enqueuing next page: ${absoluteUrl}`);
                         await enqueueLinks({
                             urls: [absoluteUrl],
-                        });
-                    }
-                } else {
-                     // Try synthetic pagination
-                    const currentUrl = new URL(request.url);
-                    let pageNum = 1;
-                    if (currentUrl.searchParams.has('page')) {
-                        pageNum = parseInt(currentUrl.searchParams.get('page'));
-                        currentUrl.searchParams.set('page', (pageNum + 1).toString());
-                    } else if (currentUrl.searchParams.has('p')) {
-                        pageNum = parseInt(currentUrl.searchParams.get('p'));
-                        currentUrl.searchParams.set('p', (pageNum + 1).toString());
-                    } else {
-                        currentUrl.searchParams.set('page', '2');
-                    }
-                    
-                    if(pageNum < 10) { 
-                        log.info(`Attempting synthetic pagination to: ${currentUrl.toString()}`);
-                        await enqueueLinks({
-                            urls: [currentUrl.toString()],
                         });
                     }
                 }
@@ -143,13 +138,9 @@ try {
         }
     });
 
-    const formatKeyword = encodeURIComponent(keyword);
-    const formatLocation = encodeURIComponent(location);
-    // Generic ZA Search URL structure
-    const startUrl = `https://www.yellowpages.co.za/search?what=${formatKeyword}&where=${formatLocation}`;
-    
+    // Start with the homepage
     await crawler.addRequests([{
-        url: startUrl
+        url: 'https://www.brabys.com/'
     }]);
 
     await crawler.run();

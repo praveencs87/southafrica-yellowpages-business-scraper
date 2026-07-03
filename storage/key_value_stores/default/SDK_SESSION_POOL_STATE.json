@@ -1,0 +1,58 @@
+{
+  "usableSessionsCount": 2,
+  "retiredSessionsCount": 0,
+  "sessions": [
+    {
+      "id": "session_7QK6XVU7Xo",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.1",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": []
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2026-07-03T03:14:07.070Z",
+      "createdAt": "2026-07-03T02:24:07.070Z",
+      "usageCount": 0,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_85xhYjfCJA",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.1",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "techaro.lol-anubis-cookie-verification",
+            "value": "019f25ca-6af3-73fd-80c6-dd8e726c514f",
+            "expires": "2026-07-03T02:54:10.911Z",
+            "domain": "brabys.com",
+            "path": "/",
+            "secure": true,
+            "hostOnly": false,
+            "creation": "2026-07-03T02:24:13.238Z",
+            "lastAccessed": "2026-07-03T02:24:13.238Z"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2026-07-03T03:14:07.073Z",
+      "createdAt": "2026-07-03T02:24:07.073Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    }
+  ]
+}

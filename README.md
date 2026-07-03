@@ -1,21 +1,21 @@
-# South Africa Yellow Pages Business Scraper
+# South Africa Brabys Business Directory Scraper
 
-**Extract verified South African businesses, manufacturers, and local services from YellowPages.co.za.**
+**Extract verified South African businesses, tradesmen, and industrial services from Brabys.**
 
-The South Africa Yellow Pages Scraper is your gateway to extracting premium B2B data from the continent's most industrialized economy. Source highly valuable business leads effortlessly.
+The South Africa Brabys Scraper is your tool for extracting premium B2B data from the key African economic hub. Source highly valuable business leads effortlessly from the authoritative Brabys.com directory.
 
-## What can South Africa Yellow Pages Scraper do?
+## What can South Africa Brabys Scraper do?
 
-- ✅ **Extract African B2B Leads** - Get business names, physical SA addresses, and direct contact numbers.
-- ✅ **Target specific Industries** - Focus your search on mining suppliers, construction, attorneys, or local plumbers.
-- ✅ **Identify Local Footprint** - Target major economic hubs like Johannesburg, Cape Town, Durban, or Pretoria.
+- ✅ **Extract South African B2B Leads** - Get business names, physical addresses, and direct contact numbers.
+- ✅ **Target specific Industries** - Focus your search on plumbers, accountants, industrial suppliers, or local services.
+- ✅ **Identify Local Footprint** - Target major economic hubs like Cape Town, Johannesburg, or Durban.
 - ✅ **Export formats** - Download data in JSON, CSV, Excel, or HTML formats.
 - ✅ **Integrations** - Connect seamlessly with API, webhooks, Make, or Zapier.
 - ✅ **No coding required** - Use our simple interface to start scraping immediately.
 
 ## Why scrape South African Business Data?
 
-South Africa is a dominant regional hub for mining, finance, and manufacturing. Sourcing B2B leads from YellowPages.co.za is essential for:
+South Africa is a dominant regional hub for mining, finance, and manufacturing. Sourcing B2B leads from Brabys.com is essential for:
 
 - 🎯 **Industrial Sourcing** - Connect with mining equipment suppliers and heavy machinery manufacturers in Gauteng.
 - 📊 **Local Professional Services** - Map out competitors and potential partners for legal (attorneys), financial, and marketing services.
@@ -30,9 +30,9 @@ South Africa is a dominant regional hub for mining, finance, and manufacturing. 
 | **address** | The full ZA address | "123 Main Reef Rd, Industria, Johannesburg" |
 | **phone** | Direct contact number | "+27 11 123 4567" |
 | **website** | Company website | "https://www.example.co.za" |
-| **listingUrl** | Link to the YellowPages listing | "https://www.yellowpages.co.za/..." |
+| **listingUrl** | Link to the directory listing | "https://www.brabys.com/..." |
 
-## How to scrape YellowPages.co.za data
+## How to scrape Brabys.com data
 
 1. **Click "Try for free"** to start using the actor.
 2. **Enter your input** - Provide a search term (e.g., "attorney" or "plumber") and a location (e.g., "Cape Town").
@@ -64,7 +64,7 @@ You can download data in multiple formats:
     "address": "123 Main Reef Rd, Industria, Johannesburg",
     "phone": "+27111234567",
     "website": "https://www.example.co.za",
-    "listingUrl": "https://www.yellowpages.co.za/...",
+    "listingUrl": "https://www.brabys.com/...",
     "scrapedAt": "2026-07-02T15:00:00Z"
 }
 ```
