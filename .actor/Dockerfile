@@ -1,5 +1,5 @@
-# Use Playwright image to ensure browser dependencies are present
-FROM apify/actor-node-playwright-chrome:20
+# Use lightweight Node.js image — no browser needed for Fyple.co.za (plain HTML)
+FROM apify/actor-node:20
 COPY --chown=myuser:myuser package*.json ./
 RUN npm --quiet set progress=false \
  && npm install --omit=dev --omit=optional \

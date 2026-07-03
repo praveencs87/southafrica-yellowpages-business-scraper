@@ -1,5 +1,5 @@
 {
-    "title": "South Africa Yellow Pages Scraper Input",
+    "title": "South Africa Fyple Business Scraper Input",
     "type": "object",
     "schemaVersion": 1,
     "properties": {
@@ -13,9 +13,9 @@
         "location": {
             "title": "Location (Where)",
             "type": "string",
-            "description": "City or province in South Africa (e.g., 'Johannesburg', 'Cape Town', 'Durban').",
+            "description": "City in South Africa (e.g., 'Cape Town', 'Johannesburg', 'Durban', 'Pretoria', 'Sandton').",
             "editor": "textfield",
-            "prefill": "Johannesburg"
+            "prefill": "Cape Town"
         },
         "maxLeads": {
             "title": "Maximum Leads",
@@ -25,10 +25,9 @@
             "minimum": 1
         },
         "proxyConfiguration": {
-            "title": "Proxy Configuration",
+            "title": "Proxy Configuration (Optional)",
             "type": "object",
-            "description": "Proxy settings. Apify Residential Proxy (South Africa targeted) is highly required.",
-            "prefill": { "useApifyProxy": true },
+            "description": "Optional proxy settings. Fyple.co.za does not require proxies for standard usage.",
             "editor": "proxy"
         }
     },

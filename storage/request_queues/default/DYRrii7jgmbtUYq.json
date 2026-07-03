@@ -1,9 +1,0 @@
-{
-	"id": "DYRrii7jgmbtUYq",
-	"json": "{\"id\":\"DYRrii7jgmbtUYq\",\"url\":\"https://www.brabys.com/\",\"loadedUrl\":\"https://www.brabys.com/\",\"uniqueKey\":\"https://www.brabys.com\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"state\":4}},\"handledAt\":\"2026-07-03T02:24:56.501Z\"}",
-	"method": "GET",
-	"orderNo": null,
-	"retryCount": 0,
-	"uniqueKey": "https://www.brabys.com",
-	"url": "https://www.brabys.com/"
-}

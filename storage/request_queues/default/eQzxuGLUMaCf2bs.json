@@ -1,0 +1,9 @@
+{
+	"id": "eQzxuGLUMaCf2bs",
+	"json": "{\"id\":\"eQzxuGLUMaCf2bs\",\"url\":\"https://www.fyple.co.za/region/wc/city/cape%20town/category/construction-contractor/plumber/page/7/\",\"loadedUrl\":\"https://www.fyple.co.za/region/wc/city/cape%20town/category/construction-contractor/plumber/page/7/\",\"uniqueKey\":\"https://www.fyple.co.za/region/wc/city/cape%20town/category/construction-contractor/plumber/page/7\",\"method\":\"GET\",\"noRetry\":false,\"retryCount\":0,\"errorMessages\":[],\"headers\":{},\"userData\":{\"__crawlee\":{\"crawlDepth\":1,\"enqueueStrategy\":\"same-hostname\",\"state\":4}},\"handledAt\":\"2026-07-03T10:28:06.209Z\"}",
+	"method": "GET",
+	"orderNo": null,
+	"retryCount": 0,
+	"uniqueKey": "https://www.fyple.co.za/region/wc/city/cape%20town/category/construction-contractor/plumber/page/7",
+	"url": "https://www.fyple.co.za/region/wc/city/cape%20town/category/construction-contractor/plumber/page/7/"
+}

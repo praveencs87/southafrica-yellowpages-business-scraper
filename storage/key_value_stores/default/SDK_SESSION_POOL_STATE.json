@@ -1,29 +1,9 @@
 {
-  "usableSessionsCount": 2,
+  "usableSessionsCount": 7,
   "retiredSessionsCount": 0,
   "sessions": [
     {
-      "id": "session_7QK6XVU7Xo",
-      "cookieJar": {
-        "version": "tough-cookie@6.0.1",
-        "storeType": "MemoryCookieStore",
-        "rejectPublicSuffixes": true,
-        "enableLooseMode": false,
-        "allowSpecialUseDomain": true,
-        "prefixSecurity": "silent",
-        "cookies": []
-      },
-      "userData": {},
-      "maxErrorScore": 3,
-      "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-07-03T03:14:07.070Z",
-      "createdAt": "2026-07-03T02:24:07.070Z",
-      "usageCount": 0,
-      "maxUsageCount": 50,
-      "errorScore": 0
-    },
-    {
-      "id": "session_85xhYjfCJA",
+      "id": "session_60BeKY41uU",
       "cookieJar": {
         "version": "tough-cookie@6.0.1",
         "storeType": "MemoryCookieStore",
@@ -33,23 +13,285 @@
         "prefixSecurity": "silent",
         "cookies": [
           {
-            "key": "techaro.lol-anubis-cookie-verification",
-            "value": "019f25ca-6af3-73fd-80c6-dd8e726c514f",
-            "expires": "2026-07-03T02:54:10.911Z",
-            "domain": "brabys.com",
+            "key": "ASP.NET_SessionId",
+            "value": "gqnxwmr5rejlfnlav2qzwery",
+            "domain": "www.fyple.co.za",
             "path": "/",
-            "secure": true,
-            "hostOnly": false,
-            "creation": "2026-07-03T02:24:13.238Z",
-            "lastAccessed": "2026-07-03T02:24:13.238Z"
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2026-07-03T10:28:05.436Z",
+            "lastAccessed": "2026-07-03T10:28:05.436Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "__RequestVerificationToken",
+            "value": "7w_s9mLs-hOX49WeVwS897NLTtoAz_kYxpp-DdtNRoRcHHgBsOlE-8WtC7I824pHc7frWlKX5HXDOtjpdCVdfJBPyBM1",
+            "domain": "www.fyple.co.za",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2026-07-03T10:28:05.436Z",
+            "lastAccessed": "2026-07-03T10:28:05.436Z"
           }
         ]
       },
       "userData": {},
       "maxErrorScore": 3,
       "errorScoreDecrement": 0.5,
-      "expiresAt": "2026-07-03T03:14:07.073Z",
-      "createdAt": "2026-07-03T02:24:07.073Z",
+      "expiresAt": "2026-07-03T11:18:03.548Z",
+      "createdAt": "2026-07-03T10:28:03.548Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_AUYEOnM3Ge",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.1",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "ASP.NET_SessionId",
+            "value": "nro4oap30drueblfen5gdiri",
+            "domain": "www.fyple.co.za",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2026-07-03T10:28:05.884Z",
+            "lastAccessed": "2026-07-03T10:28:05.884Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "__RequestVerificationToken",
+            "value": "16FbBRmQ6x3a-27OSq2mvsVkweufLQHChuw9DqJmD6PPTx-qEOJFvq0cxFQED6iq0d3REJpQ6DwXtneTjovk4uC2g3o1",
+            "domain": "www.fyple.co.za",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2026-07-03T10:28:05.884Z",
+            "lastAccessed": "2026-07-03T10:28:05.884Z"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2026-07-03T11:18:05.479Z",
+      "createdAt": "2026-07-03T10:28:05.479Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_0HdyVJJ1pE",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.1",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "ASP.NET_SessionId",
+            "value": "1lzeyzdvnua0wd2pi1ngosuo",
+            "domain": "www.fyple.co.za",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2026-07-03T10:28:06.189Z",
+            "lastAccessed": "2026-07-03T10:28:06.189Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "__RequestVerificationToken",
+            "value": "mOxlzGCC9ZFL4LFDSS5kCatEv3ucRemubksJieSOyvVqQq4FF6YgsWf3ubrSIzlm6ZtkM8ZKeOdvZZleXfAcX0Dz8Aw1",
+            "domain": "www.fyple.co.za",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2026-07-03T10:28:06.189Z",
+            "lastAccessed": "2026-07-03T10:28:06.189Z"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2026-07-03T11:18:05.484Z",
+      "createdAt": "2026-07-03T10:28:05.484Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_f3VbwBOXcA",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.1",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "ASP.NET_SessionId",
+            "value": "xwi2pb3jcalfqpbci3a5fnwf",
+            "domain": "www.fyple.co.za",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2026-07-03T10:28:06.180Z",
+            "lastAccessed": "2026-07-03T10:28:06.180Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "__RequestVerificationToken",
+            "value": "MHX5N_y085AI-e1ZvXLRbL2_y0KkREeHsP-p8PoiWGsfdb69JMlHihMEVWgG5b4v_zZSU0zX7zNbTYFFpWWe9XC-zm81",
+            "domain": "www.fyple.co.za",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2026-07-03T10:28:06.180Z",
+            "lastAccessed": "2026-07-03T10:28:06.180Z"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2026-07-03T11:18:05.489Z",
+      "createdAt": "2026-07-03T10:28:05.489Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_hcglpahqIJ",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.1",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "ASP.NET_SessionId",
+            "value": "l22gy2kidn2y352qgak4vdas",
+            "domain": "www.fyple.co.za",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2026-07-03T10:28:06.482Z",
+            "lastAccessed": "2026-07-03T10:28:06.482Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "__RequestVerificationToken",
+            "value": "yPTrTtL5Zmtwtpv5RXENUj3bRVAx91gTXQJpKdOwVW3FK7U3DPxkrnTirIWqsM4DCIjcCNyXGgm4WUjGOYVrlbtqokY1",
+            "domain": "www.fyple.co.za",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2026-07-03T10:28:06.482Z",
+            "lastAccessed": "2026-07-03T10:28:06.482Z"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2026-07-03T11:18:05.915Z",
+      "createdAt": "2026-07-03T10:28:05.915Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_ScoGq42aA4",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.1",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "ASP.NET_SessionId",
+            "value": "j0hos01ekwfmd302qthvc4tk",
+            "domain": "www.fyple.co.za",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2026-07-03T10:28:06.885Z",
+            "lastAccessed": "2026-07-03T10:28:06.885Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "__RequestVerificationToken",
+            "value": "xAgqHev8ocfpcmpvE9C4pIz6uYGkULF9CH3JD_WXaT01z_ao2za4v3RZusF9_B0wYgSkig6IMZNw3JTDNbs0N-IQ7e01",
+            "domain": "www.fyple.co.za",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2026-07-03T10:28:06.885Z",
+            "lastAccessed": "2026-07-03T10:28:06.885Z"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2026-07-03T11:18:06.223Z",
+      "createdAt": "2026-07-03T10:28:06.222Z",
+      "usageCount": 1,
+      "maxUsageCount": 50,
+      "errorScore": 0
+    },
+    {
+      "id": "session_v5tP93KGh7",
+      "cookieJar": {
+        "version": "tough-cookie@6.0.1",
+        "storeType": "MemoryCookieStore",
+        "rejectPublicSuffixes": true,
+        "enableLooseMode": false,
+        "allowSpecialUseDomain": true,
+        "prefixSecurity": "silent",
+        "cookies": [
+          {
+            "key": "ASP.NET_SessionId",
+            "value": "az5zbnr3ggctrhliuykdfthu",
+            "domain": "www.fyple.co.za",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2026-07-03T10:28:06.829Z",
+            "lastAccessed": "2026-07-03T10:28:06.829Z",
+            "sameSite": "lax"
+          },
+          {
+            "key": "__RequestVerificationToken",
+            "value": "j1WIlh0x48Dykvy_WQnLX9Ty_LivIbr4pTUrVNajSvIkXEcFo7AqmFp-CPCubB2gambAkvxhqZ2weyqKyoylgcfEwzw1",
+            "domain": "www.fyple.co.za",
+            "path": "/",
+            "httpOnly": true,
+            "hostOnly": true,
+            "creation": "2026-07-03T10:28:06.829Z",
+            "lastAccessed": "2026-07-03T10:28:06.829Z"
+          }
+        ]
+      },
+      "userData": {},
+      "maxErrorScore": 3,
+      "errorScoreDecrement": 0.5,
+      "expiresAt": "2026-07-03T11:18:06.226Z",
+      "createdAt": "2026-07-03T10:28:06.226Z",
       "usageCount": 1,
       "maxUsageCount": 50,
       "errorScore": 0
