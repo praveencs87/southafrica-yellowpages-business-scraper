@@ -1,0 +1,37 @@
+{
+    "actorSpecification": 1,
+    "name": "southafrica-yellowpages-business-scraper",
+    "title": "South Africa Yellow Pages Scraper | B2B Leads",
+    "description": "Extract verified South African businesses, manufacturers, and local services from YellowPages.co.za. Premium African B2B leads.",
+    "version": "1.0",
+    "input": "./input_schema.json",
+    "dockerfile": "./Dockerfile",
+    "minMemoryMbytes": 1024,
+    "maxMemoryMbytes": 4096,
+    "pricingModel": "PAY_PER_EVENT",
+    "pricingEvents": [
+        {
+            "eventName": "apify-actor-start",
+            "pricePerEvent": 0.25,
+            "description": "Base fee for starting the crawler (Playwright overhead)"
+        },
+        {
+            "eventName": "lead-extracted",
+            "pricePerEvent": 0.0035,
+            "description": "Charged per South African Business lead successfully extracted ($3.50 per 1k leads)"
+        }
+    ],
+    "isPublic": true,
+    "seoTitle": "YellowPages.co.za Scraper | South Africa Business Directory Extractor",
+    "seoDescription": "Scrape verified South African businesses, mining suppliers, real estate agencies, and B2B leads from YellowPages.co.za.",
+    "categories": [
+        "LEAD_GENERATION",
+        "BUSINESS",
+        "REAL_ESTATE"
+    ],
+    "defaultRunOptions": {
+        "build": "latest",
+        "timeoutSecs": 3600,
+        "memoryMbytes": 1024
+    }
+}
