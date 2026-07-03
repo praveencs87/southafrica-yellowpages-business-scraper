@@ -29,10 +29,17 @@ try {
     const crawler = new PlaywrightCrawler({
         proxyConfiguration: proxyConfig,
         maxConcurrency: 2,
-        navigationTimeoutSecs: 90,
+        maxRequestRetries: 1,
+        navigationTimeoutSecs: 30,
+        requestHandlerTimeoutSecs: 30,
         browserPoolOptions: {
             useFingerprints: true,
         },
+        preNavigationHooks: [
+            async ({ page, log }) => {
+                await page.route('**/*.{png,jpg,jpeg,gif,svg,css,woff,woff2}', route => route.abort());
+            }
+        ],
         async requestHandler({ page, request, log, enqueueLinks }) {
             log.info(`Parsing page: ${request.url}`);
             
