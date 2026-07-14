@@ -3,19 +3,14 @@
     "type": "object",
     "schemaVersion": 1,
     "properties": {
-        "keyword": {
-            "title": "Search Query (What)",
-            "type": "string",
-            "description": "The specific business category or name (e.g., 'plumber', 'mining', 'attorney').",
-            "editor": "textfield",
-            "prefill": "plumber"
-        },
-        "location": {
-            "title": "Location (Where)",
-            "type": "string",
-            "description": "City in South Africa (e.g., 'Cape Town', 'Johannesburg', 'Durban', 'Pretoria', 'Sandton').",
-            "editor": "textfield",
-            "prefill": "Cape Town"
+        "startUrls": {
+            "title": "Start URLs",
+            "type": "array",
+            "description": "List of search URLs to scrape.",
+            "editor": "requestListSources",
+            "prefill": [
+                { "url": "https://www.fyple.co.za/search/cape-town/plumber/" }
+            ]
         },
         "maxLeads": {
             "title": "Maximum Leads",
@@ -31,5 +26,5 @@
             "editor": "proxy"
         }
     },
-    "required": ["keyword", "location"]
+    "required": ["startUrls"]
 }

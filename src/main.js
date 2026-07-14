@@ -7,67 +7,14 @@ await Actor.init();
 try {
     const input = await Actor.getInput();
     const {
-        keyword = 'plumber',
-        location = 'Cape Town',
+        startUrls = [],
         maxLeads = 100,
         proxyConfiguration
     } = input || {};
 
-    // Fyple province/region codes for SA
-    const CITY_TO_REGION = {
-        'johannesburg': 'gp', 'pretoria': 'gp', 'sandton': 'gp',
-        'cape town': 'wc', 'stellenbosch': 'wc', 'paarl': 'wc',
-        'durban': 'kzn', 'pietermaritzburg': 'kzn',
-        'port elizabeth': 'ec', 'east london': 'ec',
-        'bloemfontein': 'fs', 'kimberley': 'nc',
-        'nelspruit': 'mp', 'polokwane': 'lp',
-    };
-    // Default known Fyple category slugs for common keywords
-    // Format: keyword (lowercase) → [main-category, sub-category]
-    // If no match, use the generic region browse which covers all categories
-    const KEYWORD_TO_CATEGORY = {
-        'plumber': ['construction-contractor', 'plumber'],
-        'plumbing': ['construction-contractor', 'plumber'],
-        'electrician': ['construction-contractor', 'electrician'],
-        'attorney': ['legal', 'attorney'],
-        'lawyer': ['legal', 'attorney'],
-        'doctor': ['health-beauty', 'doctor-and-clinic'],
-        'clinic': ['health-beauty', 'doctor-and-clinic'],
-        'dentist': ['health-beauty', 'dentist'],
-        'restaurant': ['food-drink', 'restaurant'],
-        'accountant': ['business-service', 'accountant'],
-        'school': ['education', 'school'],
-        'hotel': ['travel-accommodation', 'hotel'],
-        'guesthouse': ['travel-accommodation', 'guest-house'],
-        'marketing': ['business-service', 'marketing'],
-        'web': ['computer-electronics', 'web'],
-        'it': ['computer-electronics', 'it'],
-        'builder': ['construction-contractor', 'builder'],
-        'carpenter': ['construction-contractor', 'carpenter'],
-        'painter': ['construction-contractor', 'painter'],
-        'gym': ['sports-recreation', 'gym'],
-        'salon': ['health-beauty', 'hair-salon'],
-        'pharmacy': ['health-beauty', 'pharmacy'],
-    };
+    log.info(`Searching Fyple.co.za (South Africa)...`);
 
-    const cityKey = location.toLowerCase().trim();
-    const region = CITY_TO_REGION[cityKey] || 'gp';
-    const citySlug = encodeURIComponent(cityKey);
-    const kwKey = keyword.toLowerCase().trim();
-    const category = KEYWORD_TO_CATEGORY[kwKey];
-
-    // Build start URL — category-specific if keyword is known, else generic city browse
-    let startUrl;
-    if (category) {
-        startUrl = `https://www.fyple.co.za/region/${region}/city/${citySlug}/category/${category[0]}/${category[1]}/`;
-        log.info(`Using category URL: ${startUrl}`);
-    } else {
-        // Fallback: browse all businesses in the city, filtered by keyword in the query
-        startUrl = `https://www.fyple.co.za/region/${region}/city/${citySlug}/`;
-        log.info(`No category mapping for "${keyword}" — browsing all businesses in ${location}`);
-    }
-
-    log.info(`Searching Fyple.co.za (South Africa) for "${keyword}" in "${location}"`);
+    // Searching log already above
 
     await Actor.charge({ eventName: 'apify-actor-start', count: 1 });
 
@@ -124,7 +71,7 @@ try {
 
                 const record = {
                     businessName,
-                    industry: keyword,
+                    industry: '',
                     address,
                     phone: '',     // Available on detail page
                     website: '',   // Available on detail page
@@ -164,7 +111,14 @@ try {
         }
     });
 
-    await crawler.addRequests([{ url: startUrl }]);
+    if (startUrls && startUrls.length > 0) {
+        for (const req of startUrls) {
+            await crawler.addRequests([{ url: typeof req === 'string' ? req : req.url }]);
+        }
+    } else {
+        log.warning('No startUrls provided. Using default.');
+        await crawler.addRequests([{ url: 'https://www.fyple.co.za/search/cape-town/plumber/' }]);
+    }
 
     armKillSwitch(crawler);
     await crawler.run();
